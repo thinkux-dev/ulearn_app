@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearn_app/common/global_loader/global_loader.dart';
 import 'package:ulearn_app/common/widgets/popup_messages.dart';
+import 'package:ulearn_app/features/sign_up/repo/sign_up_repo.dart';
 
-import 'notifier/register_notifier.dart';
+import '../notifier/register_notifier.dart';
 
 class SignUpController {
   late WidgetRef ref;
@@ -45,26 +47,44 @@ class SignUpController {
       return;
     }
 
+    //show loading icon
+    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+
     var context = Navigator.of(ref.context);
     try {
-      final credendial = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      final credential = await SignUpRepo.firebaseSignUp(email, password);
+
       if(kDebugMode){
-        print(credendial);
+        print(credential);
       }
 
-      if(credendial.user!=null){
+      if(credential.user!=null){
 
-        await credendial.user?.sendEmailVerification();
-        await credendial.user?.updateDisplayName(name);
+        await credential.user?.sendEmailVerification();
+        await credential.user?.updateDisplayName(name);
         //get server photo url
         //set user photo url
-        toastInfo(msg: "A verification code has been sent to your email to verify your account");
+        toastInfo(msg: "An email has been sent to you to verify your account. Please open that email and complete your verification");
         context.pop();
       }
 
-    } catch (e) {}
+    }on FirebaseAuthException catch (e) {
+      if(e.code=='weak-password'){
+        toastInfo(msg: "This password is too weak");
+      }else if(e.code=='email-already-in-use'){
+        toastInfo(msg: "This email address has already been registered");
+      }else if(e.code=='user-not-found'){
+        toastInfo(msg: "User not found");
+      }
+      print(e.code);
+
+    } catch(e){
+      if(kDebugMode){
+        print(e.toString());
+      }
+    }
+
+    //show register page
+    ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
   }
 }

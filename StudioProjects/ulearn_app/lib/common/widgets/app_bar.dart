@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearn_app/common/widgets/text_widgets.dart';
 
 import '../utils/app_colors.dart';
@@ -13,12 +14,13 @@ AppBar buildAppbar({String title='Login'}){
     centerTitle: true,
     // backgroundColor: Colors.white,
     bottom: PreferredSize(
-      preferredSize: const Size.fromHeight(1),
+      preferredSize: const Size.fromHeight(2),
       child: Container(
+        padding: EdgeInsets.only(top: 20.h),
         color: Colors.grey.withOpacity(0.3),
         height: 1,
       ),
     ),
-    title: text16Normal(text: title, color: AppColors.primaryText),
+    title: Text16Normal(text: title, color: AppColors.primaryText),
   );
 }

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearn_app/common/utils/app_colors.dart';
 import 'package:ulearn_app/common/widgets/app_box_decoration.dart';
 import 'package:ulearn_app/common/widgets/text_widgets.dart';
-import 'package:ulearn_app/pages/sign_up/sign_up.dart';
 
 Widget appButton({
   double width = 325,
@@ -22,10 +21,10 @@ Widget appButton({
       //isLogin true send primary color else send white color
       decoration: appBoxShadow(
         color: isLogin ? AppColors.primaryElement : Colors.white,
-        border: Border.all(color: AppColors.primaryFourElementText)
+        boxBorder: Border.all(color: AppColors.primaryFourElementText)
       ),
       child: Center(
-        child: text16Normal(
+        child: Text16Normal(
           text: buttonName,
           color: isLogin ? AppColors.primaryBackground : AppColors.primaryText,
         ),

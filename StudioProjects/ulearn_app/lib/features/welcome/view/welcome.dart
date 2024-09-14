@@ -2,11 +2,11 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearn_app/common/widgets/text_widgets.dart';
-import 'package:ulearn_app/pages/welcome/widgets.dart';
+import 'package:ulearn_app/features/welcome/view/widget/widgets.dart';
 
-import '../../common/utils/app_colors.dart';
-import 'notifier/welcome_notifier.dart';
+import '../../../common/utils/app_colors.dart';
+import '../../../common/utils/image_res.dart';
+import '../notifier/welcome_notifier.dart';
 
 // final indexProvider = StateProvider<int>((ref)=>0);
 
@@ -44,29 +44,29 @@ class Welcome extends ConsumerWidget {
                     // First Page
                     appOnboardingPage(
                       _controller,
-                      imagePath: "assets/images/reading.png",
+                      imagePath: ImageRes.reading,
                       title: "First See Learning",
                       subTitle: "Forget about the paper, now learning all in one place",
                       index: 1,
-                      context
+                      context: context
                     ),
                     // Second Page
                     appOnboardingPage(
                       _controller,
-                      imagePath: "assets/images/man.png",
+                      imagePath: ImageRes.man,
                       title: "Connect With Everyone",
                       subTitle: "Always keep in touch with your tutor and friends. let's get connected",
                       index: 2,
-                      context
+                      context: context
                     ),
                     // Third Page
                     appOnboardingPage(
                       _controller,
-                      imagePath: "assets/images/boy.png",
+                      imagePath: ImageRes.boy,
                       title: "Always Fascinated Learning",
                       subTitle: "Anywhere, anytime. The time is at your discretion. So study wherever you can",
                       index: 3,
-                      context
+                      context: context
                     ),
                   ],
                 ),

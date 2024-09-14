@@ -48,6 +48,11 @@ dependencies:
 
   #Authentication
   firebase_auth:
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.17.5
+
+  #Lacal Storage
+  shared_preferences: ^2.3.2
 
 dev_dependencies:
   flutter_test:

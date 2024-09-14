@@ -6,6 +6,7 @@ import 'app_box_decoration.dart';
 import 'image_widgets.dart';
 
 Widget appTextField({
+  TextEditingController? controller,
   String? text="",
   String iconName = '',
   String hintText = 'Type in your info',
@@ -17,7 +18,7 @@ Widget appTextField({
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        text14Normal(text: text),
+        Text14Normal(text: text),
         SizedBox(height: 5.h),
         Container(
           width: 325.w,
@@ -33,51 +34,70 @@ Widget appTextField({
                 child: appImage(imagePath: iconName),
               ),
               //our text field
-              Container(
-                width: 250.w,
-                height: 50.h,
-                child: Center(
-                  child: TextField(
-                    onChanged: (value)=>func!(value),
-                    keyboardType: TextInputType.multiline,
-                    decoration: InputDecoration(
-                      hintText: hintText,
-                      border: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.transparent,
-                          ),
-                      ),
-                      //default border without any input
-                      enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.transparent
-                          )
-                      ),
-                      //focused border with input
-                      focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.transparent
-                          )
-                      ),
-                      //disabled border
-                      disabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.transparent
-                          )
-                      ),
-                    ),
-
-                    maxLines: 1,
-                    autocorrect: false,
-                    //by default it's false
-                    obscureText: obscureText,
-                  ),
-                ),
-              )
+              appTextFieldOnly(
+                controller: controller,
+                hintText: hintText,
+                func: func,
+                obscureText: obscureText,
+              ),
             ],
           ),
         )
       ],
+    ),
+  );
+}
+
+
+Widget appTextFieldOnly({
+  TextEditingController? controller,
+  String hintText = "Type in your info",
+  double width = 250,
+  double height = 50,
+  void Function(String value)? func,
+  bool obscureText = false,
+}){
+  return SizedBox(
+    width: width.w,
+    height: height.h,
+    child: Center(
+      child: TextField(
+        controller: controller,
+        onChanged: (value)=>func!(value),
+        keyboardType: TextInputType.multiline,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(top: 7.h, left: 10.w),
+          hintText: hintText,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.transparent,
+            ),
+          ),
+          //default border without any input
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.transparent
+              )
+          ),
+          //focused border with input
+          focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.transparent
+              )
+          ),
+          //disabled border
+          disabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.transparent
+              )
+          ),
+        ),
+
+        maxLines: 1,
+        autocorrect: false,
+        //by default it's false
+        obscureText: obscureText,
+      ),
     ),
   );
 }
