@@ -24,3 +24,12 @@ AppBar buildAppbar({String title='Login'}){
     title: Text16Normal(text: title, color: AppColors.primaryText),
   );
 }
+
+
+AppBar buildGlobalAppbar({String title='Login'}){
+  return AppBar(
+    centerTitle: true,
+
+    title: Text16Normal(text: title, color: AppColors.primaryText),
+  );
+}

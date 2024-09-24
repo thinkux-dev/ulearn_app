@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ulearn_app/common/routes/app_routes_names.dart';
+import 'package:ulearn_app/features/course_detail/view/course_detail.dart';
 import 'package:ulearn_app/features/home/view/home.dart';
 import 'package:ulearn_app/global.dart';
 
@@ -17,6 +18,7 @@ class AppPages {
       RouteEntity(page: const SignUp(), path: AppRoutesNames.REGISTER),
       RouteEntity(page: const Dashboard(), path: AppRoutesNames.DASHBOARD),
       RouteEntity(page: const Home(), path: AppRoutesNames.HOME),
+      RouteEntity(page: const CourseDetail(), path: AppRoutesNames.COURSE_DETAIL),
     ];
   }
 

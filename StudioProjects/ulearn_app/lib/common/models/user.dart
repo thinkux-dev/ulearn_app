@@ -33,6 +33,7 @@ class LoginRequestEntity {
     "online": online,
   };
 }
+
 //api post response msg
 class UserLoginResponseEntity {
   int? code;

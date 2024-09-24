@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearn_app/common/routes/routes.dart';
+import 'package:ulearn_app/common/services/http_util.dart';
 import 'package:ulearn_app/common/utils/app_styles.dart';
 import 'package:ulearn_app/common/utils/constants.dart';
 import 'package:ulearn_app/firebase_options.dart';
@@ -33,6 +34,16 @@ Future<void> main() async {
   // print(newItem);
 
   await Global.init();
+
+  ///For testing
+  // await HttpUtil().post("api/login", queryParameters: {
+  //   'name': 'bobo',
+  //   'email': 'bobo@gmail.com',
+  //   'avatar': "'xyz.com'",
+  //   'open_id': "'hjfjkdfjksd'",
+  //   'type': 2
+  // });
+
   runApp(const ProviderScope(child: MyApp()));
 }
 

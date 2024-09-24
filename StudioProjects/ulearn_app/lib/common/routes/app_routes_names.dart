@@ -4,4 +4,5 @@ class AppRoutesNames{
   static const String REGISTER = "/register";
   static const String DASHBOARD = "/dashboard";
   static const String HOME = "/home";
+  static const String COURSE_DETAIL = "/course_detail";
 }

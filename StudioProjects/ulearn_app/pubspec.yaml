@@ -53,6 +53,11 @@ dependencies:
 
   #Lacal Storage
   shared_preferences: ^2.3.2
+  #Helps To Connect With Backend
+  dio: ^5.7.0
+
+  #Network Image
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:

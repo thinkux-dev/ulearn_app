@@ -107,30 +107,34 @@ class SignInController {
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
 
-  void asyncPostAllData(LoginRequestEntity loginRequestEntity){
+  Future<void> asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
     // we need to talk to server
+    var result = await SignInRepo.login(params: loginRequestEntity);
+    if(result.code==200){
+      //have local storage
+      try{
+        // var navigator = Navigator.of(ref.context);
+        //try to remember user info
+        Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode(result.data));
+        Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, result.data!.access_token!);
 
-    //have local storage
-    try{
-      // var navigator = Navigator.of(ref.context);
-      //try to remember user info
-      Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode({
-        "name":"bob-daawid", 'email':"bobdaawid@gmail.com", 'age':23
-      }));
-      Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
+        //redirect to new page
+        navKey.currentState?.pushNamedAndRemoveUntil("/dashboard", (route) => false);
+        // navigator.push(
+        //     MaterialPageRoute(
+        //         builder: (BuildContext conte xt) => Scaffold(appBar: AppBar(), body: const Dashboard(),)
+        //     ),
+        // );
+        // navigator.pushNamed("/dashboard");
+      }catch(e){
+        if (kDebugMode) {
+          print(e.toString());
+        }
+      }
 
       //redirect to new page
-      navKey.currentState?.pushNamedAndRemoveUntil("/dashboard", (route) => false);
-      // navigator.push(
-      //     MaterialPageRoute(
-      //         builder: (BuildContext context) => Scaffold(appBar: AppBar(), body: const Dashboard(),)
-      //     ),
-      // );
-      // navigator.pushNamed("/dashboard");
-    }catch(e){
-      if (kDebugMode) {
-        print(e.toString());
-      }
+    }else{
+      toastInfo(msg: 'Login error: ${result.msg}');
     }
 
   }

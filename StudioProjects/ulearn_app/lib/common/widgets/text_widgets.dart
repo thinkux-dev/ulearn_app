@@ -126,3 +126,32 @@ Widget textUnderline({String text = "Your text"}) {
     ),
   );
 }
+
+
+class FadeText extends StatelessWidget {
+  final String? text;
+  final Color color;
+  final FontWeight fontWeight;
+  final double fontSize;
+
+  const FadeText({
+    super.key,
+    this.text="",
+    this.color=AppColors.primaryElementText,
+    this.fontWeight = FontWeight.bold,
+    this.fontSize = 10,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text!,
+      softWrap: false,
+      maxLines: 1,
+      textAlign: TextAlign.left,
+      overflow: TextOverflow.fade,
+      style:
+      TextStyle(color: color, fontSize: fontSize.sp, fontWeight: fontWeight),
+    );
+  }
+}
