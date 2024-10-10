@@ -43,5 +43,9 @@ class LocalStorageService{
    return userProfile;
  }
 
+ Future<bool>remove(String key) async{
+   return await _pref.remove(key);
+ }
+
 
 }

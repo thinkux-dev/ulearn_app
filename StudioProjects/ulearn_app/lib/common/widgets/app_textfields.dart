@@ -31,7 +31,7 @@ Widget appTextField({
               //for showing icons
               Container(
                 margin: EdgeInsets.only(left: 17.w),
-                child: appImage(imagePath: iconName),
+                child: AppImage(imagePath: iconName),
               ),
               //our text field
               appTextFieldOnly(

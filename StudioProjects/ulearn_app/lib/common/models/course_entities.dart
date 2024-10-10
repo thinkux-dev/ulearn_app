@@ -157,7 +157,7 @@ class CourseItem {
   String? price;
   String? amount_total;
   int? lesson_num;
-  int? video_len;
+  int? video_length;
   int? down_num;
   int? follow;
   int? score;
@@ -172,7 +172,7 @@ class CourseItem {
     this.price,
     this.amount_total,
     this.lesson_num,
-    this.video_len,
+    this.video_length,
     this.down_num,
     this.follow,
     this.score,
@@ -188,7 +188,7 @@ class CourseItem {
         price: json["price"].toString(),
         amount_total: json["amount_total"],
         lesson_num: json["lesson_num"],
-        video_len: json["video_len"],
+        video_length: json["video_length"],
         down_num: json["down_num"],
         follow: json["follow"],
         score: json["score"],
@@ -204,7 +204,7 @@ class CourseItem {
         "price": price,
         "amount_total": amount_total,
         "lesson_num": lesson_num,
-        "video_len": video_len,
+        "video_len": video_length,
         "down_num": down_num,
         "follow": follow,
         "score": score,

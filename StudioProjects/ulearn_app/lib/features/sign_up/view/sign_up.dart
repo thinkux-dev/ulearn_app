@@ -129,7 +129,7 @@ class _SignUpState extends ConsumerState<SignUp> {
 
                     //app register button
                     Center(
-                      child: appButton(
+                      child: AppButton(
                         buttonName: "Sign Up",
                         isLogin: true,
                         context: context,

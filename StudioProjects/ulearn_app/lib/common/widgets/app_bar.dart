@@ -9,7 +9,7 @@ import '../utils/app_colors.dart';
   put child in the given space
 */
 
-AppBar buildAppbar({String title='Login'}){
+AppBar buildAppbar({String title = 'Login'}) {
   return AppBar(
     centerTitle: true,
     // backgroundColor: Colors.white,
@@ -25,11 +25,13 @@ AppBar buildAppbar({String title='Login'}){
   );
 }
 
-
-AppBar buildGlobalAppbar({String title='Login'}){
+AppBar buildGlobalAppbar({String title = 'Login'}) {
   return AppBar(
     centerTitle: true,
-
-    title: Text16Normal(text: title, color: AppColors.primaryText),
+    title: Text16Normal(
+      text: title,
+      color: AppColors.primaryText,
+      fontWeight: FontWeight.bold,
+    ),
   );
 }

@@ -4,6 +4,7 @@ import 'package:ulearn_app/common/utils/app_colors.dart';
 import 'package:ulearn_app/common/utils/image_res.dart';
 import 'package:ulearn_app/common/widgets/image_widgets.dart';
 import 'package:ulearn_app/features/home/view/home.dart';
+import 'package:ulearn_app/features/profile/view/profile.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
@@ -81,10 +82,10 @@ Widget _bottomContainer({
 Widget appScreens({int index=0}){
   List<Widget> _screens = [
     const Home(),
-    Center(child: appImage(imagePath: ImageRes.search, width: 250, height: 250,),),
-    Center(child: appImage(imagePath: ImageRes.play, width: 250, height: 250,),),
-    Center(child: appImage(imagePath: ImageRes.message, width: 250, height: 250,),),
-    Center(child: appImage(imagePath: ImageRes.profile, width: 250, height: 250,),),
+    const Center(child: AppImage(imagePath: ImageRes.search, width: 250, height: 250,),),
+    const Center(child: AppImage(imagePath: ImageRes.play, width: 250, height: 250,),),
+    const Center(child: AppImage(imagePath: ImageRes.message, width: 250, height: 250,),),
+    const Profile(),
   ];
   return _screens[index];
 }

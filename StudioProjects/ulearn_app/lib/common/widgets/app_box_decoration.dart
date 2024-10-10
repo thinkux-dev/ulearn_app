@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearn_app/common/models/course_entities.dart';
 import 'package:ulearn_app/common/utils/app_colors.dart';
+import 'package:ulearn_app/common/values/radii.dart';
 import 'package:ulearn_app/common/widgets/text_widgets.dart';
 
 import '../utils/image_res.dart';
@@ -19,7 +20,7 @@ BoxDecoration appBoxShadow({
 }) {
   return BoxDecoration(
       color: color,
-      borderRadius: BorderRadius.circular(radius),
+      borderRadius: BorderRadius.circular(radius.w),
       border: boxBorder,
       boxShadow: [
         BoxShadow(
@@ -156,6 +157,12 @@ class AppBoxDecorationImage extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: imagePath,
                 fit: fit,
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+                httpHeaders: const {"Connection": "keep-alive"},
+                memCacheWidth: 200,
+                memCacheHeight: 200,
+                maxWidthDiskCache: 200,
+                maxHeightDiskCache: 200,
               ),
             ),
             if (courseItem != null)
@@ -201,4 +208,38 @@ class AppBoxDecorationImage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget netImageCached(
+    String url, {
+      double width = 40,
+      double height = 40,
+      EdgeInsetsGeometry? margin,
+    }) {
+  return CachedNetworkImage(
+      imageUrl: url,
+      imageBuilder: (context, imageProvider) => Container(
+        height: height.h,
+        width: width.w,
+        margin: margin,
+        decoration: BoxDecoration(
+          borderRadius: Radii.k54pxRadius,
+          image: DecorationImage(
+            image: imageProvider,
+            fit: BoxFit.cover,
+            // colorFilter: ColorFilter.mode(Colors.red, BlendMode.colorBurn),
+          ),
+        ),
+      )
+  );
+}
+
+BoxDecoration networkImageDecoration({required String imagePath}){
+  return BoxDecoration(
+      image: DecorationImage(
+          image: NetworkImage(
+              imagePath
+          )
+      )
+  );
 }

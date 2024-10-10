@@ -53,11 +53,20 @@ dependencies:
 
   #Lacal Storage
   shared_preferences: ^2.3.2
+
   #Helps To Connect With Backend
   dio: ^5.7.0
+  dio_cookie_manager:
+  cookie_jar:
 
   #Network Image
   cached_network_image:
+
+  #Video Player
+  video_player:
+
+  #Web View
+  webview_flutter: ^3.0.1
 
 dev_dependencies:
   flutter_test:
