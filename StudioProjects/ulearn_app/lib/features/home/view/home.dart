@@ -6,6 +6,7 @@ import 'package:ulearn_app/common/widgets/app_bar.dart';
 import 'package:ulearn_app/common/widgets/image_widgets.dart';
 import 'package:ulearn_app/common/widgets/search_widgets.dart';
 import 'package:ulearn_app/features/home/view/widgets/home_widget.dart';
+import 'package:ulearn_app/features/search/controller/courses_search_controller.dart';
 
 import '../controller/home_controller.dart';
 
@@ -43,7 +44,9 @@ class _HomeState extends ConsumerState<Home> {
                 const HelloText(),
                 const UserName(),
                 SizedBox(height: 20.h),
-                searchBar(),
+                AppSearchBar(
+                  searchFunc: (value) =>print('Home Page'),
+                ),
                 SizedBox(height: 20.h),
                 HomeBanner(ref: ref, controller: _controller),
                 const HomeMenuBar(),

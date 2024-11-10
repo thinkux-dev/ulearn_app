@@ -61,7 +61,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       ),
 
                       //email text field
-                      appTextField(
+                      AppTextField(
                         controller: _controller.emailController,
                           text: "Email",
                           iconName: ImageRes.user,
@@ -75,7 +75,7 @@ class _SignInState extends ConsumerState<SignIn> {
                         height: 20.h,
                       ),
                       //password text field
-                      appTextField(
+                      AppTextField(
                         controller: _controller.passwordController,
                         text: "Password",
                         iconName: ImageRes.lock,

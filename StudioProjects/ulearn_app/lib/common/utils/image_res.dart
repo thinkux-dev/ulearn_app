@@ -43,6 +43,7 @@ class ImageRes{
   static const String love = '$_imageBase/heart(1).png';
   static const String reminder = '$_imageBase/cube.png';
   static const String logOut = '$_imageBase/Logout.png';
+  static const String background = '$_imageBase/background.png';
 
   static const String profileVideo = '$_imageBase/profile_video.png';
   static const String profileBook = '$_imageBase/profile_book.png';

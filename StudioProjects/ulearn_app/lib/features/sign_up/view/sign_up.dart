@@ -60,7 +60,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                     ),
 
                     //user name text field
-                    appTextField(
+                    AppTextField(
                         text: "User name",
                         iconName: ImageRes.user,
                         hintText: 'Enter your user name',
@@ -74,7 +74,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                     ),
 
                     //email text field
-                    appTextField(
+                    AppTextField(
                         text: "Email",
                         iconName: ImageRes.user,
                         hintText: 'Enter your email address',
@@ -88,7 +88,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                     ),
 
                     //password text field
-                    appTextField(
+                    AppTextField(
                         text: "Password",
                         iconName: ImageRes.lock,
                         hintText: "Enter your password",
@@ -104,7 +104,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                     ),
 
                     //confirm password text field
-                    appTextField(
+                    AppTextField(
                         text: "Confirm Password",
                         iconName: ImageRes.lock,
                         hintText: "Confirm your password",

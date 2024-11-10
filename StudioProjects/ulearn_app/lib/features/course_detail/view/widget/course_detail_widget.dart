@@ -46,7 +46,9 @@ class CourseDetailIconText extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRoutesNames.AUTHOR_PAGE, arguments: {"token":courseItem.user_token});
+            },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
               decoration: appBoxShadow(radius: 7),
